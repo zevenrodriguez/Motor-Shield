@@ -1,0 +1,8 @@
+Board Breakdown
+
+bitRead:
+The bitRead function takes to parameters
+bitRead(x, n)
+Parameters
+x: the number from which to read
+n: which bit to read, starting at 0 for the least-significant (rightmost) bit

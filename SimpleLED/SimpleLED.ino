@@ -1,4 +1,4 @@
- // give the motor control pins names:
+// give the motor control pins names:
 const int pwmA = 3;
 const int pwmB = 11;
 const int brakeA = 9;
@@ -10,32 +10,29 @@ int x = 0;
 void setup() {
   Serial.begin(9600);
   pinMode(pwmA, OUTPUT);
-  pinMode(pwmB, OUTPUT);
   pinMode(brakeA, OUTPUT);
-  pinMode(brakeB, OUTPUT);
   pinMode(dirA, OUTPUT);  
+  pinMode(pwmB, OUTPUT);
+  pinMode(brakeB, OUTPUT);
   pinMode(dirB, OUTPUT);
- //setMotorPins(0b000101); 
+  //setMotorPins(0b000101); 
 }
 void loop() {
- if (millis() % 2000 < 10) {
- if (x == 0b000101) x = 0b000100;
- else x = 0b000101;
- 
+
+  x = 0b110011;
   setMotorPins(x); 
- }
-int motorBCurrent = analogRead(A1);
-Serial.println(motorBCurrent);
-delay(30);
 
+  delay(1);
 
+  x = 0b000000;
+  setMotorPins(x); 
 
 }
 
 void setMotorPins(byte pinState) {
   // pring the pin states as a binary number:
- // Serial.println(pinState, BIN); 
-  
+  // Serial.println(pinState, BIN); 
+
   // read each of the 6 bits and assign each to a pin:
   digitalWrite(pwmA, bitRead(pinState, 5));
   digitalWrite(brakeA, bitRead(pinState, 4));
@@ -45,6 +42,8 @@ void setMotorPins(byte pinState) {
   digitalWrite(dirB, bitRead(pinState, 0));
 
 }
+
+
 
 
 
