@@ -11,3 +11,4 @@ Ex. If we have the set 100101
 bitRead and digitalWrite:
 	When 
 
+For more on bitRead(), see http://arduino.cc/en/Reference/BitRead
