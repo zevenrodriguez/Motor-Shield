@@ -44,7 +44,7 @@ void setup() {
   digitalWrite(pwmB, HIGH);
 
   // set the speed at 60 rpm:
-  myStepper.setSpeed(10);
+  myStepper.setSpeed(240);
   // initialize the serial port:
 
 
@@ -56,12 +56,9 @@ void loop() {
   // step one revolution  in one direction:
   Serial.println("clockwise");
   myStepper.step(stepsPerRevolution);
-  delay(500);
 
-  // step one revolution in the other direction:
-  Serial.println("counterclockwise");
-  myStepper.step(-stepsPerRevolution);
-  delay(500); 
+
+ 
 }
 
 
