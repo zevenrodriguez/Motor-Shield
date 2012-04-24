@@ -51,8 +51,8 @@ void loop() {
   int channelA = analogRead(A0);
   int channelB = analogRead(A1);
   
-  Serial.println("Current of channel A is: " + channelA);
-  Serial.println("Current of channel B is: " + channelB);
+  Serial.println("Current of channel A is: " + String(channelA));
+  Serial.println("Current of channel B is: " + String(channelB));
 
   //Channel A 
   //Direction: Clockwise, Brake: OFF
