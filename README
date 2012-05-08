@@ -1,14 +1,4 @@
-Board Breakdown
+Official Arduino Motor Shield
 
-bitRead:
-The bitRead function takes two parameters:
-	1. The set of bits to read i.e(100101)
-	2. Which bit to read. The Oth bit is the rightmost bit.
-	
-Ex. If we have the set 100101
-	When we call bitRead(000001,0) it should return 1.
-	
-bitRead and digitalWrite:
-	When 
-
-For more on bitRead(), see http://arduino.cc/en/Reference/BitRead
+DC Motor example
+Stepper Motor example
