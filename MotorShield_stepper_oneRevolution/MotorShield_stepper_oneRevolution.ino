@@ -1,11 +1,9 @@
-
-
-
 /* 
  Stepper Motor Control - one revolution
+ for Arduino Motor Shield
  
  This program drives a unipolar or bipolar stepper motor. 
- The motor is attached to digital pins 8 - 11 of the Arduino.
+ The motor is attached to the - and + pins of the shield.
  
  The motor should revolve one revolution in one direction, then
  one revolution in the other direction.  
@@ -20,7 +18,7 @@
 #include <Stepper.h>
 
 const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
-// for your motor
+                                     // for your motor
 
 // these are the pins connected to the Arduino Motor Shield:                                    
 const int pwmA = 3;
