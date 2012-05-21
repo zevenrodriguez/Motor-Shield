@@ -1,26 +1,29 @@
-/* 
- Stepper Motor Control - one revolution
- for Arduino Motor Shield
- 
- This program drives a unipolar or bipolar stepper motor. 
- The motor is attached to the - and + pins of the shield.
- 
- The motor should revolve one revolution in one direction, then
- one revolution in the other direction.  
- 
- 
- Created 11 Mar. 2007
- Modified 21 May 2012
- by Tom Igoe and Zeven Rodriguez
+/*
+   MotorKnob
+   for Arduino Motor Shield
    
- This example code is in the public domain.
+   A stepper motor follows the turns of a potentiometer
+   (or other sensor) on analog input 0.
+   The motor is attached to the - and + pins of the shield.
 
+   http://www.arduino.cc/en/Reference/Stepper
+   
+   Created by David A. Mellis
+   Modified 21 May 2012
+   by Tom Igoe
+   
+   This example code is in the public domain.
  */
 
 #include <Stepper.h>
 
+
 const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
                                      // for your motor
+
+
+// the previous reading from the analog input
+int lastSensorValue = 0;
 
 // these are the pins connected to the Arduino Motor Shield:                                    
 const int pwmA = 3;
@@ -29,6 +32,9 @@ const int dirA = 12;
 const int pwmB = 11;
 const int brakeB = 8;
 const int dirB = 13;       
+
+int stepCount = 0;         // number of steps the motor has taken
+
 
 /*
   Initialize the stepper library using the direction pins (dirA and dirB) 
@@ -55,20 +61,17 @@ void setup() {
 
   // set the speed at 60 rpm:
   myStepper.setSpeed(60);
-
-  // initialize the serial port:
-  Serial.begin(9600);
 }
 
-void loop() {
-  // step one revolution  in one direction:
-  Serial.println("clockwise");
-  myStepper.step(stepsPerRevolution);
-  delay(500);
+void loop()
+{
+  // get the sensor value
+  int sensorValue = analogRead(A0);
 
-  // step one revolution in the other direction:
-  Serial.println("counterclockwise");
-  myStepper.step(-stepsPerRevolution);
-  delay(500); 
+  // move a number of steps equal to the change in the
+  // sensor reading
+  stepper.step(sensorValue - lastSensorValue);
+
+  // remember the previous value of the sensor
+  lastSensorValue = sensorValue;
 }
-

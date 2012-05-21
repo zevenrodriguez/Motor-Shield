@@ -17,6 +17,9 @@
  Created 30 Nov. 2009
  Modified 21 May 2012
  by Tom Igoe
+ 
+This example code is in the public domain.
+
  */
 
 #include <Stepper.h>

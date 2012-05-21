@@ -4,7 +4,7 @@
  for Arduino Motor Shield
   
  This program drives a unipolar or bipolar stepper motor. 
- The motor is attached to The motor is attached to the - and + pins of the shield.
+ The motor is attached to the - and + pins of the shield.
  A potentiometer is connected to analog input 0.
  
  The motor will rotate in a clockwise direction. The higher the potentiometer value,
@@ -15,7 +15,8 @@
  Created 30 Nov. 2009
  Modified 21 May 2012
  by Tom Igoe
- 
+  
+ This example code is in the public domain.
  */
 
 #include <Stepper.h>
