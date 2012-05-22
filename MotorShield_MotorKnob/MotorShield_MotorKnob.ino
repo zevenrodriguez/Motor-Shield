@@ -70,7 +70,7 @@ void loop()
 
   // move a number of steps equal to the change in the
   // sensor reading
-  stepper.step(sensorValue - lastSensorValue);
+  myStepper.step(sensorValue - lastSensorValue);
 
   // remember the previous value of the sensor
   lastSensorValue = sensorValue;
